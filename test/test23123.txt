@@ -1,4 +1,2 @@
-Đây là lần thứ 2 sửa đổi
-Sửa cố tình bị xung đột lần 1
-Đây là lần thứ 3 sửa đổi
+Sửa đổi trên remote
 
