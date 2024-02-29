@@ -1,73 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../css/global.css" />
     <link rel="stylesheet" href="../css/dashboard.css" />
-    <title>Document</title>
-</head>
-<body>
+    <title>Dashboard</title>
+  </head>
+
+  <body>
     <div class="container">
-        <ul class="tabs">
-            <li id="tab1" class="tab" onclick="showTab(1)">Danh sách kỳ thi</li>
-            <li id="tab2" class="tab tabHidden" onclick="showTab(2)">Thông kê các kỳ thi</li>
-            <li id="tab3" class="tab tabHidden" onclick="showTab(3)">Danh sách sinh viên</li>
+      <div class="nav">
+        <a href="dashboard.html">
+          <img src="../image/logo_ptit.png" id="logo" />
+        </a>
+        <ul class="nav-list">
+          <div>
+            <li class="nav-item"><a href="dashboard.html"> Trang chủ </a></li>
+            <li class="nav-item">
+              <a href="result-student.html"> Xem kết quả sinh viên </a>
+            </li>
+          </div>
+          <li class="nav-item"><a href="../index.html"> Đăng xuất </a></li>
         </ul>
-    
-        <div id="content1" class="content">
-            <table>
-                <tbody>
-                    <tr>
-                        <td>Khảo sát giữa kì 1</td>
-                        <td>
-                            <button class="btn editBtn mr-20">Sửa</button>
-                            <button class="btn deleteBtn ml-20">Xóa</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Khảo sát giữa kì 2</td>
-                        <td>
-                            <button class="btn editBtn mr-20">Sửa</button>
-                            <button class="btn deleteBtn ml-20">Xóa</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Khảo sát giữa kì 3444444444444444444444444444444444444444</td>
-                        <td>
-                            <button class="btn editBtn mr-20">Sửa</button>
-                            <button class="btn deleteBtn ml-20">Xóa</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    
-        <div id="content2" class="content hidden">
-            <h2>Nội dung của Tab 2</h2>
-            <p>This is the content of Tab 2.</p>
-        </div>
-    
-        <div id="content3" class="content hidden">
-            <h2>Nội dung của Tab 3</h2>
-            <p>This is the content of Tab 3.</p>
-        </div>
+      </div>
+      <ul class="tabs">
+        <li id="tab1" class="tab" onclick="showTab(1)">Danh sách kỳ thi</li>
+        <li id="tab2" class="tab tabHidden" onclick="showTab(2)">
+          Thông kê các kỳ thi
+        </li>
+        <li id="tab3" class="tab tabHidden" onclick="showTab(3)">
+          Danh sách sinh viên
+        </li>
+      </ul>
+
+      <div id="content1" class="content">
+        <table>
+          <thead>
+            <tr>
+              <th class="th-2">Tên kỳ thi</th>
+              <th class="th-2">Thao tác</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Khảo sát giữa kì 1</td>
+              <td>
+                <button class="btn editBtn mr-20">Sửa</button>
+                <button class="btn deleteBtn ml-20">Xóa</button>
+              </td>
+            </tr>
+            <tr>
+              <td>Khảo sát giữa kì 2</td>
+              <td>
+                <button class="btn editBtn mr-20">Sửa</button>
+                <button class="btn deleteBtn ml-20">Xóa</button>
+              </td>
+            </tr>
+            <tr>
+              <td>Khảo sát giữa kì 3444444444444444444444444444444444444444</td>
+              <td>
+                <button class="btn editBtn mr-20">Sửa</button>
+                <button class="btn deleteBtn ml-20">Xóa</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div id="content2" class="content hidden">
+        <table>
+          <thead>
+            <tr>
+              <th class="th-5">Tên kỳ thi</th>
+              <th class="th-5">Số người tham gia</th>
+              <th class="th-5">Tỷ lệ hoàn thành</th>
+              <th class="th-5">Điểm trung bình</th>
+              <th class="th-5">Xem chi tiết</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Khảo sát giữa kì 1</td>
+              <td>60</td>
+              <td>50/60</td>
+              <td>8.2</td>
+              <td>
+                <button class="btn editBtn">
+                  <a href="statistic.html">Chi tiết</a>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>Khảo sát giữa kì 2</td>
+              <td>65</td>
+              <td>60/65</td>
+              <td>6.5</td>
+              <td>
+                <button class="btn editBtn">
+                  <a href="statistic.html">Chi tiết</a>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>Khảo sát giữa kì 3444444444444444444444444444444444444444</td>
+              <td>70</td>
+              <td>35/70</td>
+              <td>8.5</td>
+              <td>
+                <button class="btn editBtn">
+                  <a href="statistic.html">Chi tiết</a>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div id="content3" class="content hidden">
+        <table>
+          <thead>
+            <tr>
+              <th class="th-2">Tên sinh viên</th>
+              <th class="th-2">Thao tác</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Đỗ Mai A</td>
+              <td>
+                <button class="btn editBtn mr-20">Sửa</button>
+                <button class="btn deleteBtn ml-20">Xóa</button>
+              </td>
+            </tr>
+            <tr>
+              <td>Trần Đức B</td>
+              <td>
+                <button class="btn editBtn mr-20">Sửa</button>
+                <button class="btn deleteBtn ml-20">Xóa</button>
+              </td>
+            </tr>
+            <tr>
+              <td>Nguyễn Hoàng C</td>
+              <td>
+                <button class="btn editBtn mr-20">Sửa</button>
+                <button class="btn deleteBtn ml-20">Xóa</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
-</body>
+  </body>
 </html>
 <script>
-    function showTab(tabNumber) {
-        // Ẩn tất cả các nội dung
-        document.getElementById('content1').classList.add('hidden');
-        document.getElementById('content2').classList.add('hidden');
-        document.getElementById('content3').classList.add('hidden');
+  function showTab(tabNumber) {
+    // Ẩn tất cả các nội dung
+    document.getElementById("content1").classList.add("hidden");
+    document.getElementById("content2").classList.add("hidden");
+    document.getElementById("content3").classList.add("hidden");
 
-        document.getElementById('tab1').classList.add('tabHidden');
-        document.getElementById('tab2').classList.add('tabHidden');
-        document.getElementById('tab3').classList.add('tabHidden');
+    document.getElementById("tab1").classList.add("tabHidden");
+    document.getElementById("tab2").classList.add("tabHidden");
+    document.getElementById("tab3").classList.add("tabHidden");
 
-        // Hiển thị nội dung của tab được chọn
-        document.getElementById('content' + tabNumber).classList.remove('hidden');
-        document.getElementById('tab' + tabNumber).classList.remove('tabHidden');
-    }
+    // Hiển thị nội dung của tab được chọn
+    document.getElementById("content" + tabNumber).classList.remove("hidden");
+    document.getElementById("tab" + tabNumber).classList.remove("tabHidden");
+  }
 </script>
