@@ -1,0 +1,52 @@
+.tabs {
+    display: flex;
+    list-style: none;
+    padding: 0;
+}
+
+.tab {
+    cursor: pointer;
+    font-size: 20px;
+    padding: 10px 15px;
+    /* background-color: #f2f2f2; */
+    margin-right: 5px;
+    border-radius: 5px 5px 0 0;
+    background-color: #ff2e27;
+}
+
+.tabHidden {
+    background-color: transparent;
+}
+
+.tab:hover,
+.btn:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.content {
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.477);
+    font-size: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.hidden {
+    display: none;
+}
+
+.btn {
+    font-size: 18px;
+    border: 0px;
+    border-radius: 5px;
+    padding: 8px 15px;
+}
+
+.editBtn {
+    background-color: rgb(65, 251, 65);
+}
+
+.deleteBtn {
+    background-color: rgb(255, 56, 56);
+}
