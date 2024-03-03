@@ -5,10 +5,6 @@
     font-family: "Inter", sans-serif;
 }
 
-ul {
-
-}
-
 a {
     text-decoration: none;
     color: black;
@@ -47,17 +43,17 @@ th, td {
     width: 20%;
 }
 
-.th-6{
-    width: 16.66%;
-}
-
-
-.th-7{
-    width: 14%;
-}
-
 .container {
-    margin: 100px 20px;
+    margin: 100px 400px;
+    padding: 15px;
+}
+
+.hidden {
+    display: none;
+}
+
+.flex {
+    display: flex;
 }
 
 .mt-10
@@ -65,7 +61,32 @@ th, td {
     margin-top: 10px;
 }
 
-.mr-20
+.mt-15
+{
+    margin-top: 15px;
+}
+
+.mt-30
+{
+    margin-top: 30px;
+}
+
+.ml-10
+{
+    margin-left: 10px;
+}
+
+.mr-10
+{
+    margin-right: 10px;
+}
+
+.ml-15
+{
+    margin-left: 15px;
+}
+
+.mr-15
 {
     margin-right: 20px;
 }
@@ -73,6 +94,21 @@ th, td {
 .ml-20
 {
     margin-left: 20px;
+}
+
+.mr-20
+{
+    margin-right: 20px;
+}
+
+.ml-30
+{
+    margin-left: 30px;
+}
+
+.mr-30
+{
+    margin-right: 30px;
 }
 
 /* NavBar */
@@ -111,46 +147,39 @@ th, td {
     color: rgb(197, 196, 196);
 }
 
-.tabs {
-    display: flex;
-    margin: 50px 0;
-    list-style: none;
-    padding: 0;
+.titleExamPage
+{
+    text-align: center;
 }
 
-.tab {
-    cursor: pointer;
+#exam-form{
     font-size: 20px;
-    padding: 10px 15px;
-    /* background-color: #f2f2f2; */
-    margin-right: 5px;
-    border-radius: 5px;
-    background-color: #ff2e27;
 }
 
-.tabHidden {
-    background-color: transparent;
+.inputModal {
+    height: 30px;
+    padding-left: 10px;
+    font-size: 18px;
+    text-align: justify;
+    width: 100%;
 }
 
-.tab:hover,
-.btn:hover {
-    cursor: pointer;
-    opacity: 0.8;
-}
-
-.content {
-    padding: 15px;
-    background-color: rgba(255, 255, 255, 0.477);
-    font-size: 20px;
+.selectExamType {
+    text-align: center;
+    height: 30px;
+    width: 160px;
+    font-size: 18px;
     border: 1px solid #ccc;
-    border-radius: 5px;
 }
 
-.hidden {
-    display: none;
+.inputTextareaModal {
+    width: 100%;
+    font-size: 18px;
+    padding: 10px;
 }
 
 .btn {
+    cursor: pointer;
     font-size: 18px;
     border: 0px;
     border-radius: 5px;
@@ -170,13 +199,15 @@ th, td {
     background-color: rgb(255, 56, 56);
 }
 
+.editQuestionBtn {
+    text-align: center;
+    height: fit-content;
+    background-color: rgb(255, 159, 56);
+}
 
-/* Modal */
-
-#delete-exam-modal-container,
-#add-student-modal-container,
-#edit-student-modal-container,
-#delete-student-modal-container {
+#add-question-modal-container,
+#add-excel-modal-container,
+#edit-question-modal-container {
     display: none;
     background: rgba(0, 0, 0, 0.5);
     position: fixed;
@@ -192,7 +223,7 @@ th, td {
     background: white;
     padding: 20px;
     border-radius: 5px;
-    width: 300px;
+    width: 500px;
 }
 
 .inputModal {
@@ -200,11 +231,34 @@ th, td {
     padding-left: 10px;
     font-size: 18px;
     padding-top: 2px;
-    width: 100%;
+}
+
+.answerModal {
+    display: flex;
+    font-size: 18px;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 .btnModal {
     display: flex;
     justify-content: space-between;
     margin: 20px 30px 0;
+}
+
+.answerCorrectModal{
+    font-size: 18px;
+}
+
+.answerCorrectInpModal {
+    justify-self: center;
+    width: 18px;
+    height: 18px;
+}
+
+.underwaterExcelModal {
+    margin-top: 50px;
+    text-align: center;
+    opacity: 60%;
+    font-size: 35px;
 }
