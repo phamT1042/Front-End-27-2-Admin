@@ -11,7 +11,6 @@ function showTab(tabNumber) {
     // Hiển thị nội dung của tab được chọn
     document.getElementById("content" + tabNumber).classList.remove("hidden");
     document.getElementById("tab" + tabNumber).classList.remove("tabHidden");
-
 }
 
 
@@ -178,16 +177,27 @@ function toggleFilterDropdownex(filterId) {
         });
     });
 }
+
 window.onclick = function (event) {
-    var filterDropdowns = document.querySelectorAll('.filter-dropdown-content');
-    filterDropdowns.forEach(function (filterDropdown) {
+    var filterDropdowns1 = document.querySelectorAll('#filterDropdownClass, #filterDropdownLevel');
+    filterDropdowns1.forEach(function (filterDropdown) {
         var filterButton = filterDropdown.parentElement.querySelector('.filterbtn');
 
-        if (!filterButton.contains(event.target)) {
+        if (!filterButton.contains(event.target) && !filterDropdown.contains(event.target)) {
+            filterDropdown.style.display = "none";
+        }
+    });
+
+    var filterDropdowns2 = document.querySelectorAll('#filterDropdownTestex, #filterDropdownClassex, #filterDropdownLevelex, #filterDropdownStateex');
+    filterDropdowns2.forEach(function (filterDropdown) {
+        var filterButton = filterDropdown.parentElement.querySelector('.filterbtn');
+
+        if (!filterButton.contains(event.target) && !filterDropdown.contains(event.target)) {
             filterDropdown.style.display = "none";
         }
     });
 }
+
 
 document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("showAllBtn").addEventListener("click", function () {
