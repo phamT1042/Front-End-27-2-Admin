@@ -144,7 +144,6 @@ function toggleFilterDropdown(filterId) {
     });
 }
 
-
 function toggleFilterDropdownex(filterId) {
     var filterDropdown = document.getElementById('filterDropdown' + filterId);
     filterDropdown.style.display = 'block';
@@ -177,6 +176,33 @@ function toggleFilterDropdownex(filterId) {
                 }
             }
         });
+    });
+}
+window.onclick = function (event) {
+    var filterDropdowns = document.querySelectorAll('.filter-dropdown-content');
+    filterDropdowns.forEach(function (filterDropdown) {
+        var filterButton = filterDropdown.parentElement.querySelector('.filterbtn');
+
+        if (!filterButton.contains(event.target)) {
+            filterDropdown.style.display = "none";
+        }
+    });
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("showAllBtn").addEventListener("click", function () {
+        var currentTab = document.querySelector(".tabs .tab:not(.tabHidden)");
+        showAllItems(currentTab);
+    });
+});
+
+function showAllItems(tab) {
+    var contentId = tab.id.replace("tab", "content");
+    var content = document.getElementById(contentId);
+    var rows = content.querySelectorAll("tbody tr");
+
+    rows.forEach(function (row) {
+        row.style.display = "";
     });
 }
 function toggleExportDropdown() {
@@ -235,33 +261,3 @@ document.getElementById('exportPDFStudentBtn').addEventListener('click', functio
 document.getElementById('exportPDFExamBtn').addEventListener('click', function () {
     exportToPDF('examTable', 'DanhSachCaThi');
 });
-
-
-window.onclick = function (event) {
-    var filterDropdowns = document.querySelectorAll('.filter-dropdown-content');
-
-    filterDropdowns.forEach(function (filterDropdown) {
-        var filterButton = filterDropdown.parentElement.querySelector('.filterbtn');
-
-        if (!filterButton.contains(event.target)) {
-            filterDropdown.style.display = "none";
-        }
-    });
-}
-
-document.addEventListener("DOMContentLoaded", function () {
-    document.getElementById("showAllBtn").addEventListener("click", function () {
-        var currentTab = document.querySelector(".tabs .tab:not(.tabHidden)");
-        showAllItems(currentTab);
-    });
-});
-
-function showAllItems(tab) {
-    var contentId = tab.id.replace("tab", "content");
-    var content = document.getElementById(contentId);
-    var rows = content.querySelectorAll("tbody tr");
-
-    rows.forEach(function (row) {
-        row.style.display = "";
-    });
-}
