@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/create-edit-exam.css" />
+    <title>Tạo/Chỉnh sửa kỳ thi</title>
+  </head>
+
+  <body>
+    <div class="nav">
+      <img src="../image/logo_ptit.png" id="logo" style="height: 42px" />
+      <ul class="nav-list">
+        <li class="nav-item"><a href="dashboard.html"> Trang chủ </a></li>
+        <li class="nav-item"><a href="statistic.html"> Xem thống kê </a></li>
+        <li class="nav-item">
+          <a href="result-student.html"> Xem kết quả sinh viên </a>
+        </li>
+        <li class="nav-item"><a href="../index.html"> Đăng xuất </a></li>
+      </ul>
+    </div>
+    <div class="container">
+      <!-- add exam -->
+      <div id="addExamForm" class="addExam">
+        <h1 class="titleExamPage">Tạo bài thi</h1>
+        <div id="exam-form">
+          <div class="mt-10">ID:</div>
+          <input
+            type="text"
+            class="inputModal"
+            id="addExamID"
+            name="addExamID"
+            required
+            value=""
+          />
+
+          <div class="mt-10">Tên bài thi:</div>
+          <input
+            type="text"
+            class="inputModal"
+            id="addExamName"
+            name="addExamName"
+            required
+            value=""
+          />
+
+          <div class="mt-10">Lớp:</div>
+          <input
+            type="text"
+            class="inputModal"
+            id="addExamClass"
+            name="addExamClass"
+            value=""
+            required
+          />
+
+          <div class="mt-10">Mô tả:</div>
+          <textarea
+            class="inputTextareaModal"
+            id="addExamDes"
+            name="addExamDes"
+            rows="4"
+          ></textarea>
+
+          <div class="mt-10">
+            <span>Kỳ thi:</span>
+            <select class="selectExamType" id="addExamType" name="addExamType">
+              <option>Luyện tập</option>
+              <option>Giữa kỳ</option>
+              <option>Cuối kỳ</option>
+            </select>
+          </div>
+
+          <div class="mt-10">
+            <span>Trạng thái:</span>
+            <select
+              class="selectExamType"
+              id="addExamStatus"
+              name="addExamStatus"
+            >
+              <option>Hết hạn làm bài</option>
+              <option>Đang diễn ra</option>
+              <option>Sắp diễn ra</option>
+            </select>
+          </div>
+
+          <div class="mt-10">
+            <span>Mức độ:</span>
+            <select
+              class="selectExamType"
+              id="addExamDifficulty"
+              name="addExamDifficulty"
+            >
+              <option>Dễ</option>
+              <option>Trung bình</option>
+              <option>Khó</option>
+            </select>
+          </div>
+          <div
+            class="mt-30"
+            style="display: flex; justify-content: space-between"
+          >
+            <h3>Danh sách câu hỏi:</h3>
+            <button class="btn addBtn" onclick="openAddExcelModal()">
+              Nhập câu hỏi từ file Excel
+            </button>
+          </div>
+          <ul id="question-list"></ul>
+
+          <div style="display: flex; justify-content: center" class="mt-30">
+            <button class="btn addBtn" onclick="openAddQuestionModal()">
+              Thêm câu hỏi
+            </button>
+          </div>
+          <br />
+          <div style="display: flex; justify-content: flex-end">
+            <a href="dashboard.html">
+              <button class="btn editBtn mr-20">Thêm kỳ thi</button>
+            </a>
+            <a href="dashboard.html">
+              <button class="btn deleteBtn ml-20">Hủy</button>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div id="editExamForm" class="editExam hidden">
+        <h1 class="titleExamPage">Chỉnh sửa bài thi</h1>
+        <div id="exam-form">
+          <div class="mt-10">ID:</div>
+          <input
+            type="text"
+            class="inputModal"
+            id="editExamID"
+            name="editExamID"
+            required
+          />
+
+          <div class="mt-10">Tên bài thi:</div>
+          <input
+            type="text"
+            class="inputModal"
+            id="editExamName"
+            name="editExamName"
+            required
+          />
+
+          <div class="mt-10">Lớp:</div>
+          <input
+            type="text"
+            class="inputModal"
+            id="editExamClass"
+            name="editExamClass"
+            required
+          />
+
+          <div class="mt-10">Mô tả:</div>
+          <textarea
+            class="inputTextareaModal"
+            id="editExamDes"
+            name="editExamDes"
+            rows="4"
+          ></textarea>
+
+          <div class="mt-10">
+            <span>Kỳ thi:</span>
+            <select
+              class="selectExamType"
+              id="editExamType"
+              name="editExamType"
+            >
+              <option>Luyện tập</option>
+              <option>Giữa kỳ</option>
+              <option>Cuối kỳ</option>
+            </select>
+          </div>
+
+          <div class="mt-10">
+            <span>Trạng thái:</span>
+            <select
+              class="selectExamType"
+              id="editExamStatus"
+              name="editExamStatus"
+            >
+              <option>Hết hạn làm bài</option>
+              <option>Đang diễn ra</option>
+              <option>Sắp diễn ra</option>
+              <option>Tự do</option>
+            </select>
+          </div>
+
+          <div class="mt-10">
+            <span>Mức độ:</span>
+            <select
+              class="selectExamType"
+              id="editExamDifficulty"
+              name="editExamDifficulty"
+            >
+              <option>Dễ</option>
+              <option>Trung bình</option>
+              <option>Khó</option>
+            </select>
+          </div>
+          <div
+            class="mt-30"
+            style="
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+            "
+          >
+            <h3>Danh sách câu hỏi:</h3>
+            <button class="btn addBtn" onclick="openAddExcelModal()">
+              Nhập câu hỏi từ file Excel
+            </button>
+          </div>
+          <ul id="question-list" class="mt-30">
+            <h4>Câu hỏi 1: Hôm nay là thứ mấy?</h4>
+            <div
+              class="flex"
+              style="justify-content: space-between; align-items: center"
+            >
+              <div>
+                <li class="mt-10 flex">
+                  <input type="checkbox" class="answerCorrectInpModal" />
+                  <label class="ml-10 answerCorrectModal">A. Thứ 2</label>
+                </li>
+                <li class="mt-10 flex">
+                  <input type="checkbox" class="answerCorrectInpModal" />
+                  <label class="ml-10 answerCorrectModal">B. Thứ 3</label>
+                </li>
+                <li class="mt-10 flex">
+                  <input type="checkbox" class="answerCorrectInpModal" />
+                  <label class="ml-10 answerCorrectModal">C. Thứ 4</label>
+                </li>
+                <li class="mt-10 flex">
+                  <input type="checkbox" class="answerCorrectInpModal" />
+                  <label class="ml-10 answerCorrectModal">D. Chủ nhật</label>
+                </li>
+              </div>
+              <button
+                class="btn editQuestionBtn"
+                onclick="openEditQuestionModal()"
+              >
+                Chỉnh sửa
+              </button>
+            </div>
+          </ul>
+
+          <div style="display: flex; justify-content: center" class="mt-30">
+            <button class="btn addBtn" onclick="openAddQuestionModal()">
+              Thêm câu hỏi
+            </button>
+          </div>
+          <br />
+          <div style="display: flex; justify-content: flex-end">
+            <a href="dashboard.html">
+              <button class="btn editBtn mr-20">Thêm kỳ thi</button>
+            </a>
+            <a href="dashboard.html">
+              <button class="btn deleteBtn ml-20">Hủy</button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="add-question-modal-container">
+      <div id="modal">
+        <h2 style="text-align: center">Thêm câu hỏi</h2>
+        <form id="student-form">
+          <div for="name" class="mt-10">Câu hỏi:</div>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            class="inputModal"
+            required
+            placeholder="Nhập câu hỏi"
+          />
+
+          <div class="answerModal mt-10">
+            <div>A.</div>
+            <input
+              type="text"
+              class="inputModal"
+              required
+              placeholder="Nhập đáp án"
+            />
+          </div>
+
+          <div class="answerModal mt-10">
+            <div>B.</div>
+            <input
+              type="text"
+              class="inputModal"
+              required
+              placeholder="Nhập đáp án"
+            />
+          </div>
+
+          <div class="answerModal mt-10">
+            <div>C.</div>
+            <input
+              type="text"
+              class="inputModal"
+              required
+              placeholder="Nhập đáp án"
+            />
+          </div>
+
+          <div class="answerModal mt-10">
+            <div>D.</div>
+            <input
+              type="text"
+              class="inputModal"
+              required
+              placeholder="Nhập đáp án"
+            />
+          </div>
+
+          <div class="answerModal mt-10">
+            Đáp án:
+            <div class="ml-30 mr-30 flex">
+              <label class="answerCorrectModal">A</label>
+              <input
+                type="checkbox"
+                value="A"
+                class="ml-10 answerCorrectInpModal"
+              />
+            </div>
+
+            <div class="mr-30 flex">
+              <label class="answerCorrectModal">B</label>
+              <input
+                type="checkbox"
+                value="B"
+                class="ml-10 answerCorrectInpModal"
+              />
+            </div>
+            <div class="mr-30 flex">
+              <label class="answerCorrectModal">C</label>
+              <input
+                type="checkbox"
+                value="C"
+                class="ml-10 answerCorrectInpModal"
+              />
+            </div>
+            <div class="flex">
+              <label class="answerCorrectModal">D</label>
+              <input
+                type="checkbox"
+                value="D"
+                class="ml-10 answerCorrectInpModal"
+              />
+            </div>
+          </div>
+        </form>
+        <div class="btnModal">
+          <button type="button" class="btn editBtn" onclick="addQuestion()">
+            Lưu
+          </button>
+          <button
+            id="close-modal"
+            class="btn deleteBtn"
+            onclick="closeAddQuestionModal()"
+          >
+            Hủy
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="edit-question-modal-container">
+      <div id="modal">
+        <h2 style="text-align: center">Chỉnh sửa câu hỏi</h2>
+        <form id="student-form">
+          <div class="mt-10">Câu hỏi:</div>
+          <input
+            type="text"
+            id="questionModal"
+            name="questionModal"
+            class="inputModal"
+            required
+            placeholder="Nhập câu hỏi"
+            value=""
+          />
+
+          <div class="answerModal mt-10">
+            <div>A.</div>
+            <input
+              type="text"
+              class="inputModal"
+              id="answerAModal"
+              name="answerAModal"
+              required
+              placeholder="Nhập đáp án"
+              value=""
+            />
+          </div>
+
+          <div class="answerModal mt-10">
+            <div>B.</div>
+            <input
+              type="text"
+              class="inputModal"
+              id="answerBModal"
+              name="answerBModal"
+              required
+              placeholder="Nhập đáp án"
+              value=""
+            />
+          </div>
+
+          <div class="answerModal mt-10">
+            <div>C.</div>
+            <input
+              type="text"
+              class="inputModal"
+              id="answerCModal"
+              name="answerCModal"
+              required
+              placeholder="Nhập đáp án"
+              value=""
+            />
+          </div>
+
+          <div class="answerModal mt-10">
+            <div>D.</div>
+            <input
+              type="text"
+              class="inputModal"
+              id="answerDModal"
+              name="answerDModal"
+              required
+              placeholder="Nhập đáp án"
+              value=""
+            />
+          </div>
+
+          <div class="answerModal mt-10">
+            Đáp án:
+            <div class="ml-30 mr-30 flex">
+              <label class="answerCorrectModal">A</label>
+              <input
+                type="checkbox"
+                value="A"
+                class="ml-10 answerCorrectInpModal"
+              />
+            </div>
+
+            <div class="mr-30 flex">
+              <label class="answerCorrectModal">B</label>
+              <input
+                type="checkbox"
+                value="B"
+                class="ml-10 answerCorrectInpModal"
+              />
+            </div>
+            <div class="mr-30 flex">
+              <label class="answerCorrectModal">C</label>
+              <input
+                type="checkbox"
+                value="C"
+                class="ml-10 answerCorrectInpModal"
+              />
+            </div>
+            <div class="flex">
+              <label class="answerCorrectModal">D</label>
+              <input
+                type="checkbox"
+                value="D"
+                class="ml-10 answerCorrectInpModal"
+              />
+            </div>
+          </div>
+        </form>
+        <div class="btnModal">
+          <button type="button" class="btn editBtn" onclick="EditQuestion()">
+            Lưu
+          </button>
+          <button
+            id="close-modal"
+            class="btn deleteBtn"
+            onclick="closeEditQuestionModal()"
+          >
+            Hủy
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="add-excel-modal-container">
+      <div id="modal" style="height: 300px">
+        <h2 style="text-align: center">Thêm câu hỏi từ file Excel</h2>
+
+        <div class="underwaterExcelModal">
+          Hãy kéo thả <br />
+          file Excel vào đây
+        </div>
+
+        <div class="btnModal" style="margin-top: 60px">
+          <button type="button" class="btn editBtn" onclick="addExcel()">
+            Thêm
+          </button>
+          <button
+            id="close-modal"
+            class="btn deleteBtn"
+            onclick="closeAddExcelModal()"
+          >
+            Hủy
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+<script>
+  function openAddQuestionModal() {
+    document.getElementById("add-question-modal-container").style.display =
+      "flex";
+  }
+
+  function closeAddQuestionModal() {
+    document.getElementById("add-question-modal-container").style.display =
+      "none";
+  }
+
+  function addQuestion() {
+    closeAddQuestionModal();
+  }
+
+  function openAddExcelModal() {
+    document.getElementById("add-excel-modal-container").style.display = "flex";
+  }
+
+  function closeAddExcelModal() {
+    document.getElementById("add-excel-modal-container").style.display = "none";
+  }
+
+  function addExcel() {
+    closeAddExcelModal();
+  }
+
+  function openEditQuestionModal() {
+    var currentQuestion = document.querySelector("h4").innerText;
+    var answerA = document
+      .querySelectorAll(".answerCorrectModal")[0]
+      .innerText.slice(2);
+    var answerB = document
+      .querySelectorAll(".answerCorrectModal")[1]
+      .innerText.slice(2);
+    var answerC = document
+      .querySelectorAll(".answerCorrectModal")[2]
+      .innerText.slice(2);
+    var answerD = document
+      .querySelectorAll(".answerCorrectModal")[3]
+      .innerText.slice(2);
+
+    document.getElementById("questionModal").value = currentQuestion;
+    document.getElementById("answerAModal").value = answerA;
+    document.getElementById("answerBModal").value = answerB;
+    document.getElementById("answerCModal").value = answerC;
+    document.getElementById("answerDModal").value = answerD;
+    document.getElementById("edit-question-modal-container").style.display =
+      "flex";
+  }
+
+  function closeEditQuestionModal() {
+    document.getElementById("edit-question-modal-container").style.display =
+      "none";
+  }
+
+  function EditQuestion() {
+    closeEditQuestionModal();
+  }
+</script>

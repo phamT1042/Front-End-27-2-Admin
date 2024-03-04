@@ -1,0 +1,185 @@
+.tabs {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin-top: 100px;
+}
+
+.tab {
+    cursor: pointer;
+    font-size: 20px;
+    padding: 10px 15px;
+    margin-right: 5px;
+    border-radius: 5px 5px 0 0;
+    background-color: #ff2e27;
+}
+
+.tabHidden {
+    background-color: transparent;
+}
+
+.tab:hover,
+.btn:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.content {
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.477);
+    font-size: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.hidden {
+    display: none;
+}
+
+.btn {
+    font-size: 18px;
+    border: 0px;
+    border-radius: 5px;
+    padding: 8px 15px;
+}
+
+.editBtn {
+    background-color: rgb(65, 251, 65);
+}
+
+.deleteBtn {
+    background-color: rgb(255, 56, 56);
+}
+.Table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.Table th,
+.Table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+.Table th {
+    background-color: #bb2019;
+    color: #fff;
+}
+
+.Table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.Table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+.Table th,
+.Table td {
+    font-size: 14px;
+}
+.filter-dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    color: black;
+}
+
+.filter-dropdown-content a {
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.filter-dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.filterdown {
+    display: inline-block;
+}
+.filter-dropdown-contentex {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    color: black;
+}
+
+.filter-dropdown-contentex a {
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.filter-dropdown-contentex a:hover {
+    background-color: #f1f1f1;
+}
+
+.filterdownex {
+    display: inline-block;
+}
+.export-dropdown {
+    margin-left: auto; 
+    display: inline-block;
+    cursor: pointer;
+}
+
+.export-btn {
+    background-color: #bb2019;
+    color: white;
+    padding: 10px;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.export-dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+}
+
+.export-dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.export-dropdown-content a:hover {
+    background-color: #bb2019;
+}
+
+.export-dropdown:hover .export-dropdown-content {
+    display: block;
+}
+
+.export-dropdown:hover .export-btn {
+    background-color: #45a049;
+}
+
+
+.gpa-link {
+    text-decoration: underline;
+    cursor: pointer; 
+}
+
+.gpa-link:hover {
+    color: red; 
+}
+.chart{
+    width: 600px;
+    height: 400px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 20px;
+    color: #bb2019;
+}

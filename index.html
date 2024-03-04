@@ -1,63 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="./css/login.css" />
-  </head>
-  <body>
 
-    <div class="main">
-      <form action="" method="POST" class="form" id="form-login">
-        <img src="./image/logo_ptit.png" alt="Logo" class="logo">
-        
-        <div class="spacer"></div>
-        <h1 style="text-align: center">Hệ thống thi trắc nghiệm PTIT</h1>
-        <h3 class="heading">Đăng nhập Admin</h3>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title> Đăng nhập Admin </title>
+  <link rel="stylesheet" href="./css/login.css" />
+</head>
 
-        <div class="spacer"></div>
+<body>
 
-        <div class="form-group">
-          <label for="fullname-login" class="form-label">Tên đăng nhập</label>
-          <input
-            id="fullname-login"
-            name="fullname-login"
-            placeholder="Nhập tên đăng nhập"
-            type="text"
-            class="form-control"
-          />
-          <span class="form-message"></span>
-        </div>
+  <div class="bg-image left">
+    <img src="https://code.ptit.edu.vn/2020/images/bg_left.png" style="height: 400px">
+  </div>
+  <div class="bg-image right">
+    <img src="https://code.ptit.edu.vn/2020/images/bg_right.png" style="height: 600px">
+  </div>
 
-        <div class="form-group">
-          <label for="password-login" class="form-label">Mật khẩu</label>
-          <input
-            id="password-login"
-            name="password-login"
-            type="password"
-            placeholder="Nhập mật khẩu"
-            class="form-control"
-          />
-          <span class="form-message"></span>
-        </div>
+  <div class="main">
+    <form action="" method="POST" class="form" id="form-login">
+      <img src="./image/logo_ptit.png">
 
-        <button class="form-submit" id="login-button">Đăng nhập</button>
-      </form>
-    </div>
+      <div class="spacer"></div>
+      <h1 style="text-align: center">Hệ thống thi trắc nghiệm PTIT</h1>
+      <h3 class="heading">Đăng nhập Admin</h3>
 
-    <script src="./js/login.js"></script>
-    <script>
-      Validator({
-        form: "#form-login",
-        rules: [
-          Validator.isRequired("#fullname-login"),
-          Validator.minLength("#password-login", 6),
-        ],
-        onSubmit: function (data) {
-          console.log(data);
-        },
-      });
-    </script>
-  </body>
+      <div class="spacer"></div>
+
+      <div class="form-group">
+        <label for="fullname-login" class="form-label">Tên đăng nhập</label>
+        <input id="fullname-login" name="fullname-login" placeholder="Nhập tên đăng nhập" type="text"
+          class="form-control" />
+        <span class="form-message"></span>
+      </div>
+
+      <div class="form-group">
+        <label for="password-login" class="form-label">Mật khẩu</label>
+        <input id="password-login" name="password-login" type="password" placeholder="Nhập mật khẩu"
+          class="form-control" />
+        <span class="form-message"></span>
+      </div>
+
+      <button class="form-submit" id="login-button">Đăng nhập</button>
+    </form>
+  </div>
+
+  <script src="./js/login.js"></script>
+  <script>
+    Validator({
+      form: "#form-login",
+      rules: [
+        Validator.isRequired("#fullname-login"),
+        Validator.minLength("#password-login", 6),
+      ],
+      onSubmit: function (data) {
+        console.log(data);
+      },
+    });
+  </script>
+</body>
+
 </html>

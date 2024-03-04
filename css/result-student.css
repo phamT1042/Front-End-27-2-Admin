@@ -1,0 +1,162 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+}
+
+body {
+    background: #f1f1f1;
+}
+
+#logo {
+    background-color: #fff;
+}
+
+.nav {
+    min-height: 42px;
+    background-color: #bb2019;
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 5;
+}
+
+.nav-list {
+    padding-left: 0;
+    margin: auto 16px;
+}
+
+.nav-item {
+    list-style: none;
+    margin: 0 10px;
+    display: inline-block;
+}
+
+.nav a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.nav a:hover {
+    color: rgb(197, 196, 196);
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #222;
+    position: relative;
+    top: 100px;
+    min-height: 100vh;
+}
+
+.student-element {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    border-color: #222;
+    margin-top: 12px;
+    box-shadow: 0 2px 5px 0 rgba(51, 62, 73, 0.1);
+    background-color: #fff;
+    padding: 20px 10px 15px 20px;
+    border-radius: 15px;
+    width: 50vw;
+}
+
+button {
+    margin-left: auto;
+    background-color: #bb2019;
+    padding: 12px 12px;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 550;
+}
+
+.search-box {
+    --height: 4em;
+    display: flex;
+}
+
+#student-input {
+    padding-left: 1em;
+    padding-right: 1em;
+    width: 300px;
+    font-size: 1.2em;
+}
+
+#button-search {
+    display: flex;
+    border-radius: 50%;
+    width: var(--height);
+    height: var(--height);
+}
+
+.SearchBox-icon {
+    margin: auto;
+}
+
+.exam-title {
+    display: flex;
+    align-items: center;
+}
+
+.export-button {
+    width: 100%
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(3px);
+    z-index: 10;
+}
+
+.modal {
+    display: flex;
+    flex-direction: column;
+    z-index: 15;
+    gap: 0.4rem;
+    width: 60vw;
+    padding: 1.3rem;
+    min-height: 50vh;
+    max-height: 90vh;
+    position: fixed;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #f1f3f5;
+}
+
+.btn-close {
+    transform: translate(20px, -20px);
+    cursor: pointer;
+    border: none;
+    font-weight: 600;
+    padding: 0.5rem 0.7rem;
+    border-radius: 50%;
+}
+
+.modal .flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.hidden {
+    display: none;
+}

@@ -1,0 +1,264 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+input {
+    border: 1px solid #ccc;
+}
+
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #dee2e6;
+}
+
+.th-2{
+    width: 50%;
+}
+
+.th-3{
+    width: 33.33%;
+}
+
+.th-4{
+    width: 25%;
+}
+
+.th-5{
+    width: 20%;
+}
+
+.container {
+    margin: 100px 400px;
+    padding: 15px;
+}
+
+.hidden {
+    display: none;
+}
+
+.flex {
+    display: flex;
+}
+
+.mt-10
+{
+    margin-top: 10px;
+}
+
+.mt-15
+{
+    margin-top: 15px;
+}
+
+.mt-30
+{
+    margin-top: 30px;
+}
+
+.ml-10
+{
+    margin-left: 10px;
+}
+
+.mr-10
+{
+    margin-right: 10px;
+}
+
+.ml-15
+{
+    margin-left: 15px;
+}
+
+.mr-15
+{
+    margin-right: 20px;
+}
+
+.ml-20
+{
+    margin-left: 20px;
+}
+
+.mr-20
+{
+    margin-right: 20px;
+}
+
+.ml-30
+{
+    margin-left: 30px;
+}
+
+.mr-30
+{
+    margin-right: 30px;
+}
+
+/* NavBar */
+#logo {
+    background-color: #fff;
+}
+
+.nav {
+    min-height: 42px;
+    background-color: #bb2019;
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 5;
+}
+
+.nav-list {
+    padding-left: 0;
+    margin: auto 16px;
+}
+
+.nav-item {
+    list-style: none;
+    margin: 0 10px;
+    display: inline-block;
+}
+
+.nav a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.nav a:hover {
+    color: rgb(197, 196, 196);
+}
+
+.titleExamPage
+{
+    text-align: center;
+}
+
+#exam-form{
+    font-size: 20px;
+}
+
+.inputModal {
+    height: 30px;
+    padding-left: 10px;
+    font-size: 18px;
+    text-align: justify;
+    width: 100%;
+}
+
+.selectExamType {
+    text-align: center;
+    height: 30px;
+    width: 160px;
+    font-size: 18px;
+    border: 1px solid #ccc;
+}
+
+.inputTextareaModal {
+    width: 100%;
+    font-size: 18px;
+    padding: 10px;
+}
+
+.btn {
+    cursor: pointer;
+    font-size: 18px;
+    border: 0px;
+    border-radius: 5px;
+    padding: 8px 15px;
+}
+
+.addBtn
+{
+    background-color: rgb(49, 190, 237);
+}
+
+.editBtn {
+    background-color: rgb(65, 251, 65);
+}
+
+.deleteBtn {
+    background-color: rgb(255, 56, 56);
+}
+
+.editQuestionBtn {
+    text-align: center;
+    height: fit-content;
+    background-color: rgb(255, 159, 56);
+}
+
+#add-question-modal-container,
+#add-excel-modal-container,
+#edit-question-modal-container {
+    display: none;
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+#modal {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    width: 500px;
+}
+
+.inputModal {
+    height: 30px;
+    padding-left: 10px;
+    font-size: 18px;
+    padding-top: 2px;
+}
+
+.answerModal {
+    display: flex;
+    font-size: 18px;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.btnModal {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 30px 0;
+}
+
+.answerCorrectModal{
+    font-size: 18px;
+}
+
+.answerCorrectInpModal {
+    justify-self: center;
+    width: 18px;
+    height: 18px;
+}
+
+.underwaterExcelModal {
+    margin-top: 50px;
+    text-align: center;
+    opacity: 60%;
+    font-size: 35px;
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Xem kết quả sinh viên</title>
+    <link rel="stylesheet" href="../css/result-student.css" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"></script>
+  </head>
+
+  <body>
+    <div class="nav">
+      <img src="../image/logo_ptit.png" id="logo" style="height: 42px" />
+      <ul class="nav-list">
+        <li class="nav-item"><a href="dashboard.html"> Trang chủ </a></li>
+        <li class="nav-item"><a href="statistic.html"> Xem thống kê </a></li>
+        <li class="nav-item">
+          <a href="result-student.html"> Xem kết quả sinh viên </a>
+        </li>
+        <li class="nav-item"><a href="../index.html"> Đăng xuất </a></li>
+      </ul>
+    </div>
+
+    <div class="main">
+      <h1>Xem kết quả thi của sinh viên</h1>
+      <div class="search-box">
+        <input
+          type="text"
+          id="student-input"
+          placeholder="Nhập tên hoặc mã sinh viên"
+          autofocus
+        />
+        <button id="button-search" onclick="searchStudent()">
+          <i class="SearchBox-icon material-icons"> search </i>
+        </button>
+      </div>
+
+      <div id="student-results">
+        <!-- student result will be add here -->
+      </div>
+    </div>
+
+    <div class="overlay hidden"></div>
+
+    <section class="modal hidden">
+      <div class="flex">
+        <button class="btn-close" onclick="closeModal()">⨉</button>
+      </div>
+      <div id="exam-details" style="overflow: auto">
+        <!-- exam detail will be add here -->
+      </div>
+    </section>
+
+    <script src="../js/result-student.js"></script>
+  </body>
+</html>
