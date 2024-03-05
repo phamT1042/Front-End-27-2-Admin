@@ -286,12 +286,14 @@ function showDetails(studentCode, examName) {
             Sinh viên: ${student.name} - ${student.code} <br> <br>
         `
 
-    examDetails.innerHTML += exam.questions.map((q, index) =>
-        `
-            Câu ${index + 1}: ${q.question} <br>
-            Đáp án chọn: ${q.studentAnswer} <br> 
-            Đáp án đúng: ${q.correctAnswer} <br> <br>
-        `).join('\n');
+    examDetails.innerHTML += exam.questions.map((q, index) => {
+        let isCorrect = q.studentAnswer === q.correctAnswer;
+        return `
+                <strong> Câu ${index + 1}: </strong> ${q.question} <br>
+                Đáp án chọn: ${q.studentAnswer} <br> 
+                <span style="color: ${isCorrect ? 'green' : 'red'}"> Đáp án đúng: ${q.correctAnswer}</span> <br> <br>
+            `;
+    }).join('\n');
 
     var modal = document.querySelector('.modal');
     modal.classList.remove('hidden')
