@@ -1,7 +1,7 @@
 var gradeData = [
-    { tenMon: 'CSDL', times: '2', diemhe10: '6.0', diemhe4: '2.5', diemhechu: 'C+' },
-    { tenMon: 'MMT', times: '1', diemhe10: '7.3', diemhe4: '3.0', diemhechu: 'B' },
-    { tenMon: 'CNXHKH', times: '1', diemhe10: '9.0', diemhe4: '4.0', diemhechu: 'A+' },
+    { kyhoc: 'Giua ky', tenMon: 'CSDL', times: '2', diemhe10: '6.0', diemhe4: '2.5', diemhechu: 'C+' },
+    { kyhoc: 'Cuoi ky', tenMon: 'MMT', times: '1', diemhe10: '7.3', diemhe4: '3.0', diemhechu: 'B' },
+    { kyhoc: 'Luyen tap', tenMon: 'CNXHKH', times: '1', diemhe10: '9.0', diemhe4: '4.0', diemhechu: 'A+' },
 ];
 
 function showGradeData() {
@@ -14,14 +14,16 @@ function showGradeData() {
     gradeData.forEach(function (grade) {
         var row = tableBody.insertRow();
         var cellIndex = row.insertCell(0);
-        var celltenMon = row.insertCell(1);
-        var celltimes = row.insertCell(2);
-        var celldiemhe10 = row.insertCell(3);
-        var celldiemhe4 = row.insertCell(4);
-        var celldiemhechu = row.insertCell(5);
+        var cellkyhoc = row.insertCell(1);
+        var celltenMon = row.insertCell(2);
+        var celltimes = row.insertCell(3);
+        var celldiemhe10 = row.insertCell(4);
+        var celldiemhe4 = row.insertCell(5);
+        var celldiemhechu = row.insertCell(6);
 
         // Thêm số thứ tự tự động
         cellIndex.innerHTML = sttCounter++;
+        cellkyhoc.innerHTML = grade.kyhoc;
         celltenMon.innerHTML = grade.tenMon;
         celltimes.innerHTML = grade.times;
         celldiemhe10.innerHTML = grade.diemhe10;
