@@ -11,7 +11,6 @@ function showTab(tabNumber) {
     // Hiển thị nội dung của tab được chọn
     document.getElementById("content" + tabNumber).classList.remove("hidden");
     document.getElementById("tab" + tabNumber).classList.remove("tabHidden");
-
 }
 
 
@@ -19,10 +18,8 @@ var studentData = [
     { maSinhVien: 'B21DCCN001', tenSinhVien: 'Nguyen Van A', chuyenNganh: 'CNTT', khoa: 'Khoa 2021', tyLeThamGia: '7/8', tyLeDat: '70%', gpa: '3.5' },
     { maSinhVien: 'B22DCCN001', tenSinhVien: 'Nguyen Van B', chuyenNganh: 'CNTT', khoa: 'Khoa 2022', tyLeThamGia: '9/9', tyLeDat: '90%', gpa: '3.83' },
     { maSinhVien: 'B21DCCN001', tenSinhVien: 'Nguyen Van A', chuyenNganh: 'CNTT', khoa: 'Khoa 2021', tyLeThamGia: '7/8', tyLeDat: '70%', gpa: '3.5' },
-    // Thêm dữ liệu sinh viên khác tương tự ở đây
 ];
 
-// Hàm để hiển thị dữ liệu vào bảng
 function showStudentData() {
     var tableBody = document.getElementById('studentTable').getElementsByTagName('tbody')[0];
 
@@ -41,7 +38,6 @@ function showStudentData() {
         var cellTyLeDat = row.insertCell(6);
         var cellGPA = row.insertCell(7);
 
-        // Thêm số thứ tự tự động
         cellIndex.innerHTML = sttCounter++;
         cellMaSinhVien.innerHTML = student.maSinhVien;
         cellTenSinhVien.innerHTML = student.tenSinhVien;
@@ -49,7 +45,6 @@ function showStudentData() {
         cellKhoa.innerHTML = student.khoa;
         cellTyLeThamGia.innerHTML = student.tyLeThamGia;
         cellTyLeDat.innerHTML = student.tyLeDat;
-        // Tạo một thẻ a để tạo liên kết
         var linkElement = document.createElement('a');
         linkElement.href = '#';  // Đặt href tùy thuộc vào đường dẫn bạn muốn chuyển hướng
         linkElement.className = 'gpa-link';
@@ -72,8 +67,8 @@ function showGradeDetails(gpa) {
 document.addEventListener('DOMContentLoaded', showStudentData);
 
 var examData = [
-    { kyThi: 'Luyen Tap', ngayThi: '01/03/2024', caThi: '9:00', maSinhVien: 'B21DCCN001', tenSinhVien: 'Nguyen Van A', monThi: 'CSDL', diem: '8.5' },
-    { kyThi: 'Giua Ky', ngayThi: '02/03/2024', caThi: '14:00', maSinhVien: 'B22DCCN001', tenSinhVien: 'Nguyen Van B', monThi: 'KTMT', diem: '9.2' },
+    { kyThi: 'Luyen Tap', monThi: 'CSDL', diem: '8.5', tyle: '90.00%' },
+    { kyThi: 'Giua Ky', monThi: 'KTMT', diem: '6.7', tyle: '65.20%' },
 
 ];
 
@@ -87,23 +82,29 @@ function showExamData() {
     examData.forEach(function (exam) {
         var row = tableBody.insertRow();
         var cellIndex = row.insertCell(0);
-        var cellKyThi = row.insertCell(1); // Thêm ô kỳ thi ở đây
-        var cellNgayThi = row.insertCell(2);
-        var cellCaThi = row.insertCell(3);
-        var cellMaSinhVien = row.insertCell(4);
-        var cellTenSinhVien = row.insertCell(5);
-        var cellMonThi = row.insertCell(6);
-        var cellDiem = row.insertCell(7); // Dịch chuyển số ô tiếp theo lên
+        var cellKyThi = row.insertCell(1); 
+        var cellMonThi = row.insertCell(2);
+        var cellDiem = row.insertCell(3); 
+        var celltyle = row.insertCell(4);
 
         // Thêm số thứ tự tự động
         cellIndex.innerHTML = sttCounter++;
-        cellKyThi.innerHTML = exam.kyThi; // Thêm dữ liệu kỳ thi
-        cellNgayThi.innerHTML = exam.ngayThi;
-        cellCaThi.innerHTML = exam.caThi;
-        cellMaSinhVien.innerHTML = exam.maSinhVien;
-        cellTenSinhVien.innerHTML = exam.tenSinhVien;
-        cellMonThi.innerHTML = exam.monThi;
+        cellKyThi.innerHTML = exam.kyThi; 
         cellDiem.innerHTML = exam.diem;
+        celltyle.innerHTML = exam.tyle;
+
+        var linkElement = document.createElement('a');
+        linkElement.href = 'chart.html';  // Đặt href tùy thuộc vào đường dẫn bạn muốn chuyển hướng
+        linkElement.className = 'gpa-link';
+        linkElement.innerHTML = exam.monThi;
+
+        // Thêm sự kiện onclick để gọi hàm showGradeDetails và truyền giá trị GPA
+        linkElement.onclick = function () {
+            showGradeDetails(exam.monThi);
+        };
+        
+        // Thêm thẻ a vào cellGPA
+        cellMonThi.appendChild(linkElement);
     });
 }
 
@@ -178,16 +179,27 @@ function toggleFilterDropdownex(filterId) {
         });
     });
 }
+
 window.onclick = function (event) {
-    var filterDropdowns = document.querySelectorAll('.filter-dropdown-content');
-    filterDropdowns.forEach(function (filterDropdown) {
+    var filterDropdowns1 = document.querySelectorAll('#filterDropdownClass, #filterDropdownLevel');
+    filterDropdowns1.forEach(function (filterDropdown) {
         var filterButton = filterDropdown.parentElement.querySelector('.filterbtn');
 
-        if (!filterButton.contains(event.target)) {
+        if (!filterButton.contains(event.target) && !filterDropdown.contains(event.target)) {
+            filterDropdown.style.display = "none";
+        }
+    });
+
+    var filterDropdowns2 = document.querySelectorAll('#filterDropdownTestex, #filterDropdownClassex, #filterDropdownLevelex, #filterDropdownStateex');
+    filterDropdowns2.forEach(function (filterDropdown) {
+        var filterButton = filterDropdown.parentElement.querySelector('.filterbtn');
+
+        if (!filterButton.contains(event.target) && !filterDropdown.contains(event.target)) {
             filterDropdown.style.display = "none";
         }
     });
 }
+
 
 document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("showAllBtn").addEventListener("click", function () {
