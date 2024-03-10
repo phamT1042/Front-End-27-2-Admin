@@ -27,9 +27,7 @@
 
   <ul class="tabs">
     <li id="tab1" class="tab" onclick="showTab(1)">Danh sách Sinh Viên</li>
-    <li id="tab2" class="tab tabHidden" onclick="showTab(2)">
-      Danh sách Ca Thi
-    </li>
+    <li id="tab2" class="tab tabHidden" onclick="showTab(2)">Danh sách Kỳ Thi </li>
   </ul>
   <button id="showAllBtn">Hiển Thị Tất Cả Danh Sách</button>
   <div id="content1" class="content">
@@ -110,42 +108,11 @@
               </button>
               <div class="filter-dropdown-contentex" id="filterDropdownTestex">
                 <a>Luyen Tap</a>
-                <a>Giua Ky</a>
-                <a>Cuoi Ky</a>
+                <a>Giua Ky 1</a>
+                <a>Cuoi Ky 2</a>
               </div>
             </div>
           </th>
-          <th>
-            Ngay
-            <div class="filterdownex" id="filterClassex">
-              <button class="filterbtn" onclick="toggleFilterDropdownex('Classex')">
-                <div class="filter-icon">
-                  <img src="../image/filter.jpg" style="width: 20px; height: 20px" />
-                </div>
-              </button>
-              <div class="filter-dropdown-contentex" id="filterDropdownClassex">
-                <a>01/01/2023</a>
-                <a>05/01/2023</a>
-              </div>
-            </div>
-          </th>
-          <th>
-            Ca thi
-            <div class="filterdownex" id="filterLevelex">
-              <button class="filterbtn" onclick="toggleFilterDropdownex('Levelex')">
-                <div class="filter-icon">
-                  <img src="../image/filter.jpg" style="width: 20px; height: 20px" />
-                </div>
-              </button>
-              <div class="filter-dropdown-contentex" id="filterDropdownLevelex">
-                <a>9:00</a>
-                <a>7:00</a>
-                <a>14:00</a>
-              </div>
-            </div>
-          </th>
-          <th>Ma Sinh Vien</th>
-          <th>Ten Sinh Vien</th>
           <th>
             Mon Thi
             <div class="filterdownex" id="filterStateex">
@@ -162,14 +129,15 @@
               </div>
             </div>
           </th>
-          <th>Diem</th>
+          <th>Diem Trung Binh</th>
+          <th>Ty Le Dat</th>
         </tr>
       </thead>
       <tbody></tbody>
     </table>
   </div>
 
-  <script src="../js/statistic.js"></script>
+  <script type="module" src="../js/statistic.js"></script>
 </body>
 
 </html>
