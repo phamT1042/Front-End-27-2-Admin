@@ -1,3 +1,5 @@
+import amiriHex from './font/amiriFont.js'
+
 var chartData = [
     { msv: 'B21DCCN001', tensv: 'Nguyen Van A', diem: '8.0', tt: '05/01/2024 15:00' },
     { msv: 'B21DCCN002', tensv: 'Nguyen Van B', diem: '7.0', tt: '05/01/2024 15:05' },
@@ -68,7 +70,6 @@ function updateChartDataset() {
 
 document.addEventListener('DOMContentLoaded', showChartData);
 
-
 function updatePieChart() {
 
     var totalStudents = chartData.length;
@@ -134,4 +135,35 @@ function showChartData() {
     updateChartDataset();
 
     updatePieChart();
+}
+
+window.exportChartPDF = function() {
+    const amiriFont = amiriHex
+
+    var pdf = new jsPDF('p', 'mm', 'a4');
+    pdf.addFileToVFS("Amiri-Regular.ttf", amiriFont);
+    pdf.addFont("Amiri-Regular.ttf", "Amiri", "normal");
+    pdf.setFont("Amiri");
+    pdf.setFontSize(12);
+    pdf.text('Thống kê kỳ thi luyện tập CSDL', 70, 10);
+
+    html2canvas(document.querySelector("#myChart"))
+    .then(canva => {
+        var imgData = canva.toDataURL('image/png');
+        var imgProps = pdf.getImageProperties(imgData);
+        var pdfWidth = 125;
+        var pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+        pdf.addImage(imgData, 'PNG', 40, 15, pdfWidth, pdfHeight);
+    })
+    .then(() => {
+        return html2canvas(document.querySelector("#myPieChart"));
+    })
+    .then(canva => {
+        var imgData = canva.toDataURL('image/png');
+        var imgProps = pdf.getImageProperties(imgData);
+        var pdfWidth = 150;
+        var pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+        pdf.addImage(imgData, 'PNG', 30, 145, pdfWidth, pdfHeight);
+        pdf.save('Thống kê kết quả.pdf');
+    })
 }

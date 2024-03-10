@@ -1,6 +1,5 @@
-// import html2canvas from 'html2canvas';
-// window.html2canvas = html2canvas;
-function showTab(tabNumber) {
+import amiriHex from './font/amiriFont.js'
+window.showTab = function(tabNumber) {
     // Ẩn tất cả các nội dung
     document.getElementById("content1").classList.add("hidden");
     document.getElementById("content2").classList.add("hidden");
@@ -54,7 +53,7 @@ function showStudentData() {
         linkElement.onclick = function () {
             showGradeDetails(student.gpa);
         };
-        
+
         // Thêm thẻ a vào cellGPA
         cellGPA.appendChild(linkElement);
 
@@ -82,14 +81,14 @@ function showExamData() {
     examData.forEach(function (exam) {
         var row = tableBody.insertRow();
         var cellIndex = row.insertCell(0);
-        var cellKyThi = row.insertCell(1); 
+        var cellKyThi = row.insertCell(1);
         var cellMonThi = row.insertCell(2);
-        var cellDiem = row.insertCell(3); 
+        var cellDiem = row.insertCell(3);
         var celltyle = row.insertCell(4);
 
         // Thêm số thứ tự tự động
         cellIndex.innerHTML = sttCounter++;
-        cellKyThi.innerHTML = exam.kyThi; 
+        cellKyThi.innerHTML = exam.kyThi;
         cellDiem.innerHTML = exam.diem;
         celltyle.innerHTML = exam.tyle;
 
@@ -102,7 +101,7 @@ function showExamData() {
         linkElement.onclick = function () {
             showGradeDetails(exam.monThi);
         };
-        
+
         // Thêm thẻ a vào cellGPA
         cellMonThi.appendChild(linkElement);
     });
@@ -222,7 +221,7 @@ function toggleExportDropdown() {
     exportDropdown.classList.toggle('show');
 }
 
-function exportToCSV(tableId, filename) {
+window.exportToCSV = function(tableId, filename) {
     const table = document.getElementById(tableId);
     const rows = table.querySelectorAll('tr');
 
@@ -246,30 +245,34 @@ function exportToCSV(tableId, filename) {
     document.body.appendChild(link);
     link.click();
 }
-document.getElementById('exportCSVStudentBtn').addEventListener('click', function () {
-    exportToCSV('studentTable', 'DanhSachSinhVien');
-});
-document.getElementById('exportCSVExamBtn').addEventListener('click', function () {
-    exportToCSV('examTable', 'DanhSachCaThi');
-});
 
-function exportToPDF(tableId, filename) {
+window.exportToPDF = function(tableId, filename) {
     const element = document.getElementById(tableId);
 
-    html2pdf(element, {
-        margin: 10,
-        filename: filename + '.pdf',
-        image: { type: 'jpeg', quality: 0.98 },
-        html2canvas: { scale: 2 },
-        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+    const amiriFont = amiriHex
+
+    var pdf = new jsPDF('p', 'mm', 'a4');
+    pdf.addFileToVFS("Amiri-Regular.ttf", amiriFont);
+    pdf.addFont("Amiri-Regular.ttf", "Amiri", "normal");
+    pdf.setFont("Amiri");
+
+    pdf.setFontSize(12);
+    if (tableId === 'studentTable') {
+        pdf.text('Kết quả thi của sinh viên', 70, 10);
+    }
+    else if (tableId == 'examTable') {
+        pdf.text('Kết quả các kỳ thi', 80, 10);
+    }
+    else {
+        pdf.text('Kết quả kỳ thi luyện tập CSDL', 65, 10);
+    }
+
+    html2canvas(element).then(table => {
+        var imgData = table.toDataURL('image/png');
+        var imgProps = pdf.getImageProperties(imgData);
+        var pdfWidth = 200;
+        var pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+        pdf.addImage(imgData, 'PNG', 5, 15, pdfWidth, pdfHeight);
+        pdf.save(filename);
     });
 }
-
-// Gọi hàm xuất PDF khi click vào nút
-document.getElementById('exportPDFStudentBtn').addEventListener('click', function () {
-    exportToPDF('studentTable', 'DanhSachSinhVien');
-});
-
-document.getElementById('exportPDFExamBtn').addEventListener('click', function () {
-    exportToPDF('examTable', 'DanhSachCaThi');
-});

@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="../css/result-student.css" />
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
   <link rel="stylesheet" href="../css/statistic.css" />
-  <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+  <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"></script>
 </head>
 
@@ -30,6 +30,15 @@
     <li id="tab2" class="tab tabHidden" onclick="showTab(2)">Biểu Đồ</li>
   </ul>
   <div id="content1" class="content">
+    <div class="export-dropdown">
+      <button class="export-btn" onclick="toggleExportDropdown()">
+        Xuất File
+      </button>
+      <div class="export-dropdown-content" id="exportDropdown">
+        <a onclick="exportToCSV('chartTable', 'DanhSachSinhVienCSDL')">Xuất CSV</a>
+        <a onclick="exportToPDF('chartTable', 'DanhSachSinhVienCSDL')">Xuất PDF</a>
+      </div>
+    </div>
     <table id="chartTable" class="Table">
       <thead>
         <tr>
@@ -38,9 +47,9 @@
           <th>Ten Sinh Vien</th>
           <th>Diem
             <button class="filterbtn" onclick="sort()">
-                <div class="filter-icon">
-                  <img src="../image/filter.jpg" style="width: 20px; height: 20px" />
-                </div>
+              <div class="filter-icon">
+                <img src="../image/filter.jpg" style="width: 20px; height: 20px" />
+              </div>
             </button>
           </th>
           <th>Trang thai hoan thanh</th>
@@ -51,25 +60,33 @@
     </table>
   </div>
 
+  
   <div id="content2" class="content hidden">
+    <div style="display: flex;">
+      <button style="margin: auto" class="export-btn" onclick="exportChartPDF()">
+        Xuất file thống kê
+      </button>
+    </div>
+    
     <div class="chart2">
-        <canvas id="myChart" width="300" height="300"></canvas>
-        <canvas id="myPieChart"></canvas>
+      <canvas id="myChart" width="300" height="300"></canvas>
+      <canvas id="myPieChart"></canvas>
     </div>
   </div>
 
-  <script src="../js/statistic.js"></script>
+
+  <script type="module" src="../js/statistic.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="../js/chart.js"></script>
+  <script type="module" src="../js/chart.js"></script>
 </body>
 
 </html>
 <style>
-    .chart2 {
-        display: flex;
-        justify-content: space-around;
-        width: 100%;
-        max-width: 600px; 
-        margin: 0 auto; 
-    }
+  .chart2 {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+  }
 </style>
