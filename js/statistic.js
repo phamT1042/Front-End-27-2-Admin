@@ -260,8 +260,11 @@ window.exportToPDF = function(tableId, filename) {
     if (tableId === 'studentTable') {
         pdf.text('Kết quả thi của sinh viên', 70, 10);
     }
-    else if (tableId == 'examTable') {
+    else if (tableId === 'examTable') {
         pdf.text('Kết quả các kỳ thi', 80, 10);
+    }
+    else if (tableId === 'gradeTable') {
+        pdf.text('Kết quả thi của sinh viên A', 70, 10);
     }
     else {
         pdf.text('Kết quả kỳ thi luyện tập CSDL', 65, 10);
