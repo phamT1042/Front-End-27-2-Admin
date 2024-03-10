@@ -276,7 +276,7 @@ function searchStudent() {
     });
 }
 
-function showDetails(studentCode, examName) {
+window.showDetails = function(studentCode, examName) {
     var examDetails = document.getElementById('exam-details');
 
     const student = students.find(s => s.code === studentCode);
@@ -303,7 +303,7 @@ function showDetails(studentCode, examName) {
     overlay.classList.remove('hidden')
 }
 
-function closeModal() {
+window.closeModal = function() {
     var modal = document.querySelector('.modal');
     modal.classList.add('hidden')
     var overlay = document.querySelector('.overlay')
@@ -337,3 +337,5 @@ function exportReport(studentCode) {
 
     doc.save(student.name + '.pdf');
 }
+
+document.getElementById('button-search').addEventListener('click', searchStudent)

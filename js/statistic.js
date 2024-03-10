@@ -109,7 +109,7 @@ function showExamData() {
 
 // Gọi hàm hiển thị dữ liệu cho bảng "Danh sách Ca Thi"
 document.addEventListener('DOMContentLoaded', showExamData);
-function toggleFilterDropdown(filterId) {
+window.toggleFilterDropdown = function(filterId) {
     var filterDropdown = document.getElementById('filterDropdown' + filterId);
     filterDropdown.style.display = 'block';
 
@@ -144,7 +144,7 @@ function toggleFilterDropdown(filterId) {
     });
 }
 
-function toggleFilterDropdownex(filterId) {
+window.toggleFilterDropdownex = function(filterId) {
     var filterDropdown = document.getElementById('filterDropdown' + filterId);
     filterDropdown.style.display = 'block';
 
@@ -216,7 +216,7 @@ function showAllItems(tab) {
         row.style.display = "";
     });
 }
-function toggleExportDropdown() {
+const toggleExportDropdown = function() {
     const exportDropdown = document.getElementById('exportDropdown');
     exportDropdown.classList.toggle('show');
 }
